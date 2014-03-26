@@ -1,44 +1,38 @@
+import rest.OpenWeatherMapService;
 import rx.Observable;
-import rx.Subscriber;
-import rx.functions.Action1;
+import rx.ObservableScanner;
 
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
+import static rest.OpenWeatherMapService.Factory.*;
 
 public class Calculator {
 
     public static void main(String[] args) throws Exception {
 
-        Observable<String> observeur = Observable.create((Observable.OnSubscribe<String>) (subscriber) -> {
-
-            Scanner scanner = new Scanner(System.in);
-
-            new Thread(() -> {
-                while (!subscriber.isUnsubscribed()) {
-                    String ligne = scanner.nextLine();
-                    subscriber.onNext(ligne);
-                }
-
-                if (subscriber.isUnsubscribed()) {
-                    scanner.close();
-                }
-
-                subscriber.onCompleted();
-            }).start();
-
-        });
+//        Observable<String> observeur = ObservableScanner.create();
+//
+//        observeur
+//                .flatMap(ligne -> getInstance().getWeatherForCity(ligne))
+////                .throttleWithTimeout(800, TimeUnit.MILLISECONDS)
+//                .subscribe(
+//                        city -> System.out.println("City : " + city),
+//                        throwable -> System.err.println(throwable.getMessage())
+//                );
 
 
-        observeur.
-                throttleWithTimeout(800, TimeUnit.MILLISECONDS).
-                subscribe(ligne -> System.out.println("Lu : " + ligne));
+//        getInstance().getWeatherForCity("Paris", new Callback<OpenWeatherMapService.City>() {
+//            @Override
+//            public void success(OpenWeatherMapService.City city, Response response) {
+//                System.out.println(city);
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError retrofitError) {
+//
+//            }
+//        });
 
         Thread.sleep(60000);
 
     }
 
-
-//
-//        System.out.println(scanner.nextLine());
-//        System.out.println(scanner.nextLine());
 }
