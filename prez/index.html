@@ -1,18 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>I &lt;3 Ruban</title>
+  <title>Des callbacks à la programmation réactive</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="components/normalize-css/normalize.css" />
   <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="components/highlightjs/styles/tomorrow.css" />
   <link rel="stylesheet" href="components/ruban/css/ruban.min.css" />
   <link rel="stylesheet" href="components/ruban/css/ruban-print.min.css" media="print" />
+<style>
+
+    section {
+      border-left: 1em solid #434343;
+      border-right: 1em solid #434343;
+    }
+
+    .pagination {
+      right: 2.6em;
+    }
+
+    pre code {
+      background-color: inherit;
+    }
+
+    pre .xml .javascript {
+      opacity: 1;
+    }
+
+    #examples ul {
+      padding-left: 0;
+    }
+
+    #solution {
+      color: white;
+      background-color: #0071B5;
+      border-color: white;
+    }
+
+    #solution strong {
+      text-shadow: 0.06em 0.06em 0 #0071B5, 0.07em 0.07em 0 #fff;
+    }
+
+    th, td {
+    	border: 1px solid black;
+    	text-align: center;
+    	vertical-align: middle;
+    	padding: 0.5em;
+    	font-size: 80%;
+    }
+
+    li {
+    	padding-bottom: 0.5em;
+    }
+
+    h1.petit {
+    	font-size: 1.7em;
+    }
+
+</style>
 </head>
 
 <body>
   <section>
-    <h1>My Awesome Presentation</h1>
+    <h1>Des callbacks à la programmation réactive</h1>
+  </section>
+
+  <section id="demo1">
+  	<h1>Démo</h1>
+  </section>
+
+  <section>
+  	<h1>Solution ?</h1>
+  </section>
+
+  <section id="solution">
+    <h1>La programmation <strong>réactive</strong> (fonctionnelle)</h1>
+  </section>
+
+  <section id="kesako">
+  	<h1>Programmation réactive ?</h1>
+
+  	<ul class="steps">
+  		<li>Pour construire des applications asynchrones et sur des évènements en utilisant 
+  		des séquences observables</li>
+  		<li>En <a href="https://rx.codeplex.com/">.Net</a>, en <a href="https://github.com/Netflix/RxJava/tree/master/language-adaptors/rxjava-scala">Scala</a>, en <a href="http://reactive-extensions.github.io/RxJS/">JS</a>, en <a href="https://github.com/Reactive-Extensions/RxCpp">C/C++</a>, en <a href="https://github.com/Reactive-Extensions/Rx.rb">Ruby</a>, en <a href="http://rxpy.codeplex.com/">Python</a>, en <a href="https://github.com/Netflix/RxJava/wiki">Java</a> ...</li>
+  	</ul>
+
+  </section>
+
+  <section id="relations">
+  	<h1 class="petit">Relations (a)synchrones</h1>
+
+	  <table>
+	  	<tr>
+	  		<th style="border-left: 0; border-top: 0;">
+	  			&nbsp;
+	  		</th>
+	  		<th>
+	  			Un&nbsp;élément
+	  		</th>
+	  		<th>
+	  			Plusieurs<br>éléments
+	  		</th>
+	  	</tr>
+	  	<tr>
+	  		<td>
+	  			Synchrone <br> Pull
+	  		</td>
+	  		<td>
+	  			<code>
+	  			T&nbsp;getData()
+	  			</code>
+	  		</td>
+	  		<td>
+	  			<code>
+	  			Iterable&lt;T&gt;&nbsp;getData()
+	  			</code>
+	  		</td>
+	  	</tr>
+	  	<tr>
+	  		<td>
+	  			Asynchrone <br> Push
+	  		</td>
+	  		<td>
+	  			<code>
+	  			Future&lt;T&gt;&nbsp;getData()
+	  			</code>
+	  		</td>
+	  		<td>
+	  			<code>
+	  			Observable&lt;T&gt;&nbsp;getData()
+	  			</code>
+	  		</td>
+	  	</tr>
+	  </table>
+  	
+  </section>
+
+  <section id="demo2">
+  	<h1>Démo</h1>
+  </section>
+
+  <section id="ressources">
+  	<h1>Ressources</h1>
+  	<ul>
+  		<li><a href="http://netflix.github.io/RxJava/javadoc/rx/Observable.html">Javadoc RxJava</a></li>
+  	</ul>
+  	
   </section>
 
   <script src="components/jquery/jquery.min.js"></script>
